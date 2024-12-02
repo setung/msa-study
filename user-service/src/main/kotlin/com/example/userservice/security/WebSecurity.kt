@@ -19,7 +19,9 @@ class WebSecurity {
                 it.disable()
             }
             .authorizeHttpRequests {
-                it.requestMatchers("/users/**").permitAll()
+                it.requestMatchers("/user-service/users/**").permitAll()
+                    .requestMatchers("/user-service/users").permitAll()
+                    .requestMatchers("/user-service/health_check").permitAll()
 
             }
 

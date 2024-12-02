@@ -1,3 +1,2 @@
 rootProject.name = "msa-study"
-
-//include("user-service")
+include("apigateway-service", "user-service", "discoveryservice")

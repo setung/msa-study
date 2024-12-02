@@ -17,4 +17,13 @@ class UserService(
         val user = User.from(userRequest, passwordEncoder.encode(userRequest.password))
         return UserResponse(userRepository.save(user))
     }
+
+    fun getUserByUserId(userId: String): UserResponse {
+        val user = userRepository.findByUserId(userId) ?: throw RuntimeException("user null")
+
+
+        return UserResponse(user)
+    }
+
+    fun getUserByAll() = userRepository.findAll()
 }
