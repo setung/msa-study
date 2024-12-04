@@ -12,6 +12,10 @@ spring:
             uri: lb://USER-SERVICE
             predicates:
               - Path=/user-service/**
+          - id: catalog-service
+            uri: lb://CATALOG-SERVICE
+            predicates:
+              - Path=/catalog-service/**
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
