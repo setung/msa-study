@@ -20,5 +20,5 @@ class CatalogController(
         String.format("It's Working in catalog Service on PORT %s", environment.getProperty("local.server.port"))
 
     @GetMapping("/catalogs")
-    fun getUsers() = ResponseEntity(catalogService.getAllCatalogs(), HttpStatus.OK)
+    fun getCatalogs() = ResponseEntity(catalogService.getAllCatalogs(), HttpStatus.OK)
 }
