@@ -13,6 +13,8 @@ spring:
     url: jdbc:mysql://localhost:3306/msa
     username: admin
     password: 1234
+  main:
+    allow-circular-references: true
 
 eureka:
   instance:
@@ -26,3 +28,6 @@ eureka:
 greeting:
   message: Welcome to the Simple E-commerce.
 
+token:
+  expiration_time: 86400000
+  secret: uA3dfn0QwGfz+pJHIymQs7eTnA1qx1JTYF93lh7EOqU=
