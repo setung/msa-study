@@ -25,7 +25,11 @@ class UserController(
 
     @GetMapping("/health_check")
     fun status() =
-        String.format("It's Working in User Service on PORT %s", environment.getProperty("local.server.port"))
+        "It's Working in User Service \n" +
+                "PORT  ${environment.getProperty("local.server.port")}" +
+                "Server PORT  ${environment.getProperty("server.port")}" +
+                "token secret  ${environment.getProperty("token.secret")}" +
+                "token expiration time  ${environment.getProperty("token.expiration_time")}"
 
     @GetMapping("/welcome")
     fun welcome() = message

@@ -36,6 +36,14 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
             - AuthorizationHeaderFilter
+        - id: user-service-actuator
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user-service/actuator/**
+            - Method=GET, POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
         - id: catalog-service
           uri: lb://CATALOG-SERVICE
           predicates:
@@ -55,6 +63,8 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
 
-token:
-  expiration_time: 86400000
-  secret: uA3dfn0QwGfz+pJHIymQs7eTnA1qx1JTYF93lh7EOqU=
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, refresh, beans, httpexchanges
