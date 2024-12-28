@@ -4,15 +4,19 @@ server:
 spring:
   application:
     name: user-service
-
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   jpa:
     hibernate:
       ddl-auto: update
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/msa
-    username: admin
-    password: 1234
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/msa
+#    username: admin
+#    password: 1234
   main:
     allow-circular-references: true
 
@@ -35,5 +39,5 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, refresh, beans
+        include: health, refresh, beans, busrefresh
 #  secret: uA3dfn0QwGfz+pJHIymQs7eTnA1qx1JTYF93lh7EOqU=

@@ -4,9 +4,19 @@ server:
 spring:
   application:
     name: config-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   cloud:
     config:
       server:
         git:
           uri: file:///Users/setung/Documents/study/msa-study/git-local-repo
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh
