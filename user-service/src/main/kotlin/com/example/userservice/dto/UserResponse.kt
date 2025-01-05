@@ -21,4 +21,12 @@ data class UserResponse(
         userId = user.userId,
         orders = null
     )
+
+    constructor(user: User, orders: List<OrderResponse>?) : this(
+        id = user.id!!,
+        name = user.name,
+        email = user.email,
+        userId = user.userId,
+        orders = orders
+    )
 }
